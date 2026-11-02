@@ -295,7 +295,7 @@ O seletor de domínio no alto da tela tem **busca** e mostra a situação de cad
 
 Na aba **Segurança**, o painel mostra que o **HTTP/2** fica **sempre ligado nas conexões HTTPS**: o seu site já entrega com o protocolo moderno, sem nada a configurar.
 
-![HTTP/2 sempre ligado](prints/19-http2-http3.png)
+![HTTP/2 sempre ligado](prints/19-http2.png)
 
 ### Cache TTL
 
