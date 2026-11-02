@@ -363,5 +363,6 @@ Antes de mudar o DNS do seu site para a CDN, confira:
 ## 8. Precisa de ajuda?
 
 - **Ainda não tem conta?** Fale com a gente pelo link da tela de entrada.
-- **Dúvida ou problema?** Abra um chamado em **Suporte**, dentro do painel, ou acompanhe o **Status do sistema**.
+- **Dúvida ou problema?** Envie para **suporte@edgium.net**: nosso sistema de chamados permite acompanhar cada atendimento. Você também pode acompanhar o **Status do sistema** pelo painel.
+- **Site lento ou fora do ar?** Veja [o que coletar e enviar](../../guias/problemas-de-acesso-cdn.md).
 - Quando pedir ajuda sobre um erro, informe o **subdomínio**, o **período** e, se possível, um **print** da tela. Isso acelera muito o atendimento.
