@@ -340,6 +340,8 @@ A tela resume o subdomínio e a origem antes de criar. Se você escolheu configu
 
 ![Etapa 3: revisão quando a origem fica para depois](prints/24-assistente-origem-depois.png)
 
+> **Passo a passo completo e vídeo:** veja o guia [Como ativar um subdomínio](../../guias/ativar-subdominio.md), do cadastro ao HTTPS ativo.
+
 ### Padrões já ligados
 
 Todo subdomínio novo nasce com o **IP real do visitante** e a **geolocalização** ligados, para que o seu servidor saiba de quem é cada acesso e de onde ele vem (a aba **Geral** mostra e permite alterar). Ao ligar o HTTPS, o redirecionamento de HTTP para HTTPS e o HTTP/2 também já vêm ligados.

@@ -1,0 +1,72 @@
+1
+00:00:00,300 --> 00:00:04,800
+Como ativar um subdomínio na CDN Edgium. Do cadastro ao HTTPS ativo, em 8 passos
+
+2
+00:00:05,300 --> 00:00:10,800
+No painel da CDN, adicione o subdomínio. Digite só o nome, por exemplo loja.
+
+3
+00:00:11,300 --> 00:00:16,800
+Informe o servidor de origem: o endereço IP para onde a CDN envia o tráfego do seu site.
+
+4
+00:00:17,300 --> 00:00:21,800
+Confira os dados e clique em Criar subdomínio.
+
+5
+00:00:22,300 --> 00:00:28,800
+Passos 1 e 2: o site está cadastrado e a Edgium envia a configuração para a rede.
+
+6
+00:00:29,300 --> 00:00:36,800
+Passo 3: no provedor do seu domínio, crie o registro A com o nome e os valores mostrados. O botão Copiar ajuda.
+
+7
+00:00:37,300 --> 00:00:42,800
+Passo 4: a Edgium confere o apontamento sozinha. Você não precisa marcar nada.
+
+8
+00:00:43,300 --> 00:00:48,800
+DNS validado. Passo 5, agora é com você: clique em Ir para a aba SSL.
+
+9
+00:00:49,300 --> 00:00:54,800
+Na aba SSL, clique em Criar para pedir o certificado gratuito.
+
+10
+00:00:55,300 --> 00:00:59,800
+O pedido foi registrado. A emissão é automática.
+
+11
+00:01:00,300 --> 00:01:05,800
+Passo 6: a Edgium emite o certificado. Costuma levar poucos minutos.
+
+12
+00:01:06,300 --> 00:01:11,800
+Passo 7: o certificado chega à rede. Não é preciso fazer nada.
+
+13
+00:01:12,300 --> 00:01:17,800
+Passo 8: com o certificado na rede, clique em Ativar o HTTPS na aba SSL.
+
+14
+00:01:18,300 --> 00:01:22,800
+Ligue a chave Ativação de SSL.
+
+15
+00:01:23,300 --> 00:01:27,800
+O HTTPS fica ligado e o certificado aparece como ativo.
+
+16
+00:01:28,300 --> 00:01:33,800
+Tudo pronto: HTTPS ativo. Seu subdomínio está ativo.
+
+17
+00:01:34,300 --> 00:01:39,800
+Os 8 passos concluídos. Em caso de dúvida, fale com suporte@edgium.net.
+
+18
+00:01:40,300 --> 00:01:44,800
+Dúvidas? Fale com suporte@edgium.net As imagens usam dados de demonstração.
+
