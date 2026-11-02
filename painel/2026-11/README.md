@@ -181,7 +181,9 @@ O bloco **Bloqueios de segurança** conta quantos acessos o WAF barrou, quantos 
 
 ### 3.11 Sobre o histórico dos dados
 
-Seja transparente com você: os **dados detalhados de erros por tipo (502, 503, 504, 499 e família 4xx) existem a partir de 02/11/2026**, quando a nova coleta entrou no ar. O **histórico anterior está sendo carregado** aos poucos e, enquanto isso, os gráficos de erros **não terão série para dias antigos**. Em períodos longos, como 30 dias, você pode ver os erros começarem só nos últimos dias. Isso não significa que antes estava tudo bem, apenas que esse detalhe ainda não foi preenchido. Os números gerais (requisições, dados entregues, cache) acompanham o histórico que já estava disponível.
+Para ser transparente: o Analytics passou a usar uma **nova coleta em 02/11/2026**. Os **dados detalhados de erros por tipo (502, 503, 504, 499 e família 4xx) existem a partir dessa data**, e os gráficos de erros **não têm série para dias anteriores**. Isso não significa que antes estava tudo bem, apenas que esse detalhe não era registrado.
+
+Os números gerais (requisições, dados entregues, cache e países) dos dias anteriores **ainda estão sendo carregados** aos poucos e não cobrem todos os dias. Por isso, períodos longos, como 30 dias, podem mostrar menos dias ou totais parciais.
 
 ---
 
@@ -315,7 +317,7 @@ Na aba **Cache**, duas opções parecidas têm funções diferentes:
 - **Tempo de expiração**: por quanto tempo o **navegador do visitante** guarda os arquivos.
 - **Cache TTL**: por quanto tempo a **CDN** guarda no cache as respostas bem-sucedidas (200 e 206) antes de buscar de novo no seu servidor.
 
-Se uma opção salva antes estiver fora da lista, a tela agora mostra o valor salvo, em vez de deixar o campo em branco. O botão **Limpar cache** apaga os arquivos guardados para que a CDN busque a versão nova.
+Se uma opção salva antes estiver fora da lista, a tela agora mostra o valor salvo, em vez de deixar o campo em branco.
 
 ![Aba Cache: limpeza, tempo de expiração e Cache TTL](prints/20-cache-ttl.png)
 
