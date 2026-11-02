@@ -67,8 +67,6 @@ No alto da tela você escolhe o período (**6 horas, 24 horas, 7 dias ou 30 dias
 
 Filtros disponíveis: **status** (por exemplo `502`, `5xx`, `404` ou `4xx`), **caminho** (parte do endereço da página), **país**, **IP**, entre outros. Clicar em um país, IP, caminho ou servidor dentro dos gráficos também aplica o filtro.
 
-> Os filtros mais detalhados (como IP e caminho) valem para períodos de **até 7 dias**. Se você escolher 30 dias, a tela avisa e remove o filtro.
-
 Os **atalhos** já deixam a tela pronta para as perguntas mais comuns:
 
 | Atalho | Para que serve |
@@ -106,7 +104,7 @@ Esta é a parte mais útil quando algo parece errado. No topo da seção há uma
 
 > "Nos últimos 60 min, 1,8% das requisições (11 de 616) retornaram erro 5xx, acima do limite de 1%. Isso costuma indicar problema na sua origem; verifique o servidor."
 
-Como lemos esses números, com transparência: a janela é de 60 minutos; só avaliamos quando há **pelo menos 100 requisições** (com poucos acessos a conta enganaria); alertamos quando os erros 5xx passam de **1%**; e apontamos um servidor específico quando ele concentra **80% ou mais** dos erros. São critérios nossos, não um padrão de mercado, e aparecem na própria tela.
+Como lemos esses números: a janela é de 60 minutos; só avaliamos quando há **pelo menos 100 requisições** (com poucos acessos a conta enganaria); alertamos quando os erros 5xx passam de **1%**; e apontamos um servidor específico quando ele concentra **80% ou mais** dos erros. Os critérios aparecem na própria tela.
 
 Abaixo da frase há botões úteis: **Abrir a aba Upstreams**, **Falar com o suporte** e **Ver erros de origem nos Logs do WAF**.
 
@@ -179,12 +177,6 @@ Esta lista mostra as páginas e arquivos que **não saíram do cache** e foram b
 
 O bloco **Bloqueios de segurança** conta quantos acessos o WAF barrou, quantos eventos apenas foram registrados em modo de aprendizado (e não bloqueiam) e quantas conexões foram **encerradas sem resposta (444)**. Se há um pico fora do padrão, pode ser ataque; se o WAF parece barrar uso legítimo, abra os Logs do WAF pelo botão ao lado (próxima seção).
 
-### 3.11 Sobre o histórico dos dados
-
-Para ser transparente: o Analytics passou a usar uma **nova coleta em 02/11/2026**. Os **dados detalhados de erros por tipo (502, 503, 504, 499 e família 4xx) existem a partir dessa data**, e os gráficos de erros **não têm série para dias anteriores**. Isso não significa que antes estava tudo bem, apenas que esse detalhe não era registrado.
-
-Os números gerais (requisições, dados entregues, cache e países) dos dias anteriores **ainda estão sendo carregados** aos poucos e não cobrem todos os dias. Por isso, períodos longos, como 30 dias, podem mostrar menos dias ou totais parciais.
-
 ---
 
 ## 4. Logs do WAF
@@ -209,7 +201,7 @@ Use os filtros para chegar ao que importa:
 
 No alto há um resumo: **bloqueios no período**, quantos **com motivo registrado** e quantos **sem**. Em seguida, os rankings **Por regra**, **Por URL** e **Por subdomínio**. Se uma regra ou página domina o ranking, é por ela que se começa. Dá para exportar a lista em **CSV**.
 
-> O gráfico de bloqueios do Analytics passou a contar apenas bloqueios reais do WAF. Por isso os números podem ficar menores que antes. Não é perda de proteção: é uma contagem mais correta.
+> O gráfico de bloqueios do Analytics agora conta apenas bloqueios reais do WAF, separados dos erros do servidor. A leitura ficou mais precisa.
 
 ### 4.2 Como ler o motivo e a regra
 
@@ -269,15 +261,13 @@ O ícone de relógio em cada linha abre o histórico **daquele registro**; o bot
 
 ![Histórico de alterações da zona](prints/15-dns-historico.png)
 
-> O histórico começa a ser registrado a partir de 02/11/2026. Alterações feitas antes dessa data não aparecem nele.
-
 ### 5.4 Erros explicados
 
 Quando algo não pode ser salvo, a mensagem aparece **no campo que precisa ser corrigido** e diz o que aconteceu, em qual registro e o que fazer. Exemplos: "Este registro já existe", ou, como na imagem, que já existe um registro A com aquele nome e por isso um CNAME não pode ser criado junto.
 
 ![Erro explicado no campo: CNAME não convive com outros tipos](prints/12-dns-erro-explicado.png)
 
-Outras melhorias: cada gravação altera **apenas o registro que você mexeu** (nada de reenviar a zona inteira), o formulário mostra o endereço completo que será criado, e registros de nameserver (NS) e SOA do domínio principal ficam **protegidos**, com um aviso discreto na tela.
+Outras melhorias: cada gravação altera **apenas o registro que você mexeu**, o formulário mostra o endereço completo que será criado, e registros de nameserver (NS) e SOA do domínio principal ficam **protegidos**, com um aviso discreto na tela.
 
 ---
 
@@ -291,7 +281,7 @@ No menu do canto superior direito (os três pontinhos) está o **Perfil**. Ele m
 
 ### Confirmar digitando o nome antes de apagar
 
-Para evitar apagar o domínio ou o subdomínio errado, o painel pede que você **digite o nome** para confirmar. O botão **Apagar** só é liberado quando o texto confere (colar está desativado de propósito). A mensagem deixa claro o que será removido (SSL, servidores de origem, regras do WAF e cache) e que a **retirada final do site dos servidores da CDN é feita pela equipe da Edgium**.
+Para evitar apagar o domínio ou o subdomínio errado, o painel pede que você **digite o nome** para confirmar. O botão **Apagar** só é liberado quando o texto confere (colar está desativado de propósito). A mensagem deixa claro o que será removido (SSL, servidores de origem, regras do WAF e cache).
 
 ![Confirmação de exclusão digitando o nome do subdomínio](prints/17-apagar-digitando-o-nome.png)
 
@@ -301,14 +291,11 @@ O seletor de domínio no alto da tela tem **busca** e mostra a situação de cad
 
 ![Seletor de domínio com busca e situação de cada domínio](prints/18-troca-de-dominio.png)
 
-### HTTP/2 e HTTP/3
+### HTTP/2
 
-Na aba **Segurança**, o painel mostra o estado de cada protocolo:
+Na aba **Segurança**, o painel mostra que o **HTTP/2** fica **sempre ligado nas conexões HTTPS**: o seu site já entrega com o protocolo moderno, sem nada a configurar.
 
-- **HTTP/2** fica **sempre ligado nas conexões HTTPS**.
-- **HTTP/3** aparece como **"Ainda não está disponível"**, só para informar. Não há nada a ligar por enquanto.
-
-![HTTP/2 sempre ligado; HTTP/3 ainda indisponível](prints/19-http2-http3.png)
+![HTTP/2 sempre ligado](prints/19-http2-http3.png)
 
 ### Cache TTL
 
@@ -317,7 +304,7 @@ Na aba **Cache**, duas opções parecidas têm funções diferentes:
 - **Tempo de expiração**: por quanto tempo o **navegador do visitante** guarda os arquivos.
 - **Cache TTL**: por quanto tempo a **CDN** guarda no cache as respostas bem-sucedidas (200 e 206) antes de buscar de novo no seu servidor.
 
-Se uma opção salva antes estiver fora da lista, a tela agora mostra o valor salvo, em vez de deixar o campo em branco.
+A tela sempre mostra o valor salvo, mesmo quando ele é um tempo personalizado.
 
 ![Aba Cache: limpeza, tempo de expiração e Cache TTL](prints/20-cache-ttl.png)
 
